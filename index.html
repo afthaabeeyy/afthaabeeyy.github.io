@@ -1,158 +1,67 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AFTHAB RAHMAN — Web Designer</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
-<link rel="stylesheet" href="index.css">
+<!DOCTYPE html>
 
+<html lang="eng" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta name="view-port" , width="device-width" , initial-scale="1">
+
+<style>
+
+@keyframes glow{0% ,100%{text-shadow:0 0 6px white,0 0 12px white}50%{text-shadow:0 0 14px gold,0 0 28px gold}}
+
+@keyframes typing{from{width:0}to{width:23.5ch}}
+
+@keyframes blinks{50%{border-color:transparent}}
+
+
+
+
+.box1{
+background: #60a5fa;
+border: 2px solid #ddd;
+border-radius: 12px;
+margin: 60px auto;
+width: 80%;
+padding: 20px;
+text-align: center;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.box1 h1{
+color:#ffffff;
+text-shadow:0 0 8px #f472b6,0 0 28px #f472b6;
+animation:glow 2s ease-in-out infinite;
+}
+
+.typing{
+animation:blinks 0.1481481481481481s step-end 5s,typing 4s steps(27,end)forwards;
+width:0;
+border-right:3px solid #000000;
+overflow:hidden;
+white-space:nowrap;
+font-size:24px;
+font-family:nano-serif;
+}
+
+
+
+
+
+</style>
 
 </head>
+
 <body>
-  z<div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">AR</div>
-        <div>
-          <div style="font-weight:700">AFTHAB RAHMAN</div>
-          <div class="small">Web Designer • HTML • CSS • WordPress</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="card">
-        <h1>Hi — I build beautiful websites that help businesses get customers</h1>
-        <p class="sub">I create responsive landing pages, small business websites, portfolios, and WordPress sites. Fast delivery, clear pricing, and UPI payment accepted.</p>
+<div class="box1">
 
-        <div class="skills">
-          <div class="skill">HTML</div>
-          <div class="skill">CSS</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">WordPress</div>
-          <div class="skill">Responsive</div>
-          <div class="skill">UI/UX</div>
-        </div>
+<h1 class="just-glow">GLOWING</h1>
+<p class="typing">hello,welcome to my website</p>
 
-        <div class="cta">
-          <a class="btn" href="#contact">Hire Me</a>
-          <a class="btn-outline" href="#portfolio">See Work</a>
-        </div>
+</div>
 
-        <div style="margin-top:12px;font-size:14px;color:var(--muted)">Starting at <strong>₹1,000</strong> — 50% advance • UPI / PayTM accepted</div>
-      </div>
 
-      <aside class="card" style="display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center">
-        <div style="width:100%;height:200px;border-radius:10px;background-image:linear-gradient(135deg,#0b1220,#071021);display:flex;align-items:center;justify-content:center;color:var(--muted)">Preview / Profile Screenshot</div>
-        <div style="width:100%;display:flex;gap:8px">
-          <a class="btn" href="#contact" style="flex:1;text-align:center">Start Project</a>
-          <a class="btn-outline" style="flex:1;text-align:center" href="mailto:you@example.com">Email</a>
-        </div>
-      </aside>
-    </section>
-
-    <section id="services" class="two-col">
-      <div class="service card">
-        <h3>Services</h3>
-        <ul style="color:var(--muted);margin-top:8px">
-          <li>Landing pages — quick 1-day delivery</li>
-          <li>Small business websites (4–6 pages)</li>
-          <li>WordPress setup & theme customization</li>
-          <li>Responsive redesign & speed optimization</li>
-        </ul>
-      </div>
-
-      <div class="service card">
-        <h3>Quick Packages</h3>
-        <div style="margin-top:8px;color:var(--muted)">
-          <div>Basic Landing — ₹1,000 (1 page)</div>
-          <div>Business Starter — ₹3,000 (upto 4 pages)</div>
-          <div>WordPress Setup — ₹2,000 (theme + 1 page)</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio">
-      <h2 style="margin-top:20px">Portfolio</h2>
-      <div class="grid">
-        <div class="work" style="background-image:url('https://picsum.photos/id/1015/800/600')">Salon Landing</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1011/800/600')">Cafe Website</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1018/800/600')">Portfolio Site</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1027/800/600')">Real Estate</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1033/800/600')">Clinic Site</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1041/800/600')">Restaurant</div>
-      </div>
-    </section>
-
-    <section id="reviews" class="two-col">
-      <div class="card">
-        <h3>What clients say</h3>
-        <div style="margin-top:12px;color:var(--muted)">
-          "Delivered fast and exactly what we needed" — Raj, Salon Owner
-        </div>
-        <div style="margin-top:8px;color:var(--muted)">
-          "Great communication and affordable rates" — Meera, Cafe Owner
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Locations & Map</h3>
-        <div style="margin-top:10px;color:var(--muted)">Kalladikode, India</div>
-        <div style="margin-top:10px">
-          <!-- Replace the src below with your Google Maps embed link -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019..." style="width:100%;height:140px;border:0;border-radius:8px"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" style="margin-top:20px" class="card">
-      <h3>Contact & Booking</h3>
-      <p class="small">Fill the form or message me on WhatsApp. I accept UPI / Paytm for instant payments.</p>
-
-      <form onsubmit="handleSubmit(event)">
-        <input type="text" id="name" placeholder="Your name" required>
-        <input type="email" id="email" placeholder="Email or phone" required>
-        <input type="text" id="project" placeholder="Project type (e.g. Landing page)" required>
-        <input type="text" id="budget" placeholder="Budget (₹)" >
-        <textarea id="details" placeholder="Short project details"></textarea>
-        <button type="submit" class="btn" style="grid-column:1/-1">Send Request</button>
-      </form>
-
-      <script>
-        function handleSubmit(e){
-          e.preventDefault();
-          const name=document.getElementById('name').value.trim();
-          const email=document.getElementById('email').value.trim();
-          const project=document.getElementById('project').value.trim();
-          const budget=document.getElementById('budget').value.trim();
-          const details=document.getElementById('details').value.trim();
-          const body=`Name: ${name}%0AContact: ${email}%0AProject: ${project}%0ABudget: ${budget}%0ADetails:%0A${details}`;
-          // Default: open WhatsApp chat. Replace number with your UPI/pay link or email if you prefer.
-          const phone = '9048246458'; // <-- REPLACE with your phone (country code + number)
-          const wa = `https://wa.me/${phone}?text=${body}`;
-          window.open(wa,'_blank');
-        }
-      </script>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> AFTHAB RAHMAN — Web Designer</div>
-      <div>UPI: <strong>yourupi@bank</strong> • Email: you@example.com</div>
-    </footer>
-  </div>
-
-  <a class="whatsapp" href="https://wa.me/9048246458" target="_blank">Message on WhatsApp</a>
-
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
-</html>
 
+</html>
