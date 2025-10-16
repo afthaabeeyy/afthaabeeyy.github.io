@@ -1,52 +1,62 @@
-
-<!DOCTYPE html>
-
-<html lang="eng" dir="ltr">
-
+<!doctype html>
+<html lang="en">
 <head>
-
-<title>AFTHAB'S WEB</title>
-<meta charset="utf-8">
-<meta name="viewport" width="device-width initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AFTHAB RAHMAN — Web Designer</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
 <style>
 
 
- :root{
+:root{
 --bg:#0f1724;
 --card:#0b1220;
 --muted:#9aa4b2;
 --accent:#06b6d4;
 --glass:rgba(255,255,255,0.03)
 }
-
-
-@keyframes marquee{0%{transform:translateX(0%)}100%{transform:translateX(-100%)}}
-@keyframes blink{50%{opacity:0}}
-@keyframes glow{0%,100%{text-shadow:0 0 6px #ffffff,0 0 12px #ffffff}50%{text-shadow:0 0 14px gold,0 0 28px gold}}
-
-
-body{
-background:#071021; 
+    
+*{
+box-sizing:border-box
+}
+    
+html,body{
+height:100%;
 margin:0;
-padding-left:10%;
-padding-right:10%;
-padding-top:60px;
+font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+color:#e6eef6;
+background:linear-gradient(180deg,#071021 0%, #071726 100%)
+}
+    
+a{
+color:var(--accent);
+text-decoration:none
+}
+    
+.container{
+max-width:1100px;
+margin:28px auto;
+padding:24px
 }
 
-
+    
+/* Header */
+    
 header{
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:16px
 }
-
+    
 .brand{
 display:flex;
 align-items:center;
-gap:12px;
+gap:12px
 }
-
+    
 .logo{
 width:56px;
 height:56px;
@@ -59,323 +69,358 @@ color:#021026;
 font-weight:700;
 font-size:18px
 }
-
-.small{
-color:gray;
-}
-
-
+    
 nav a{
-color:#ffffff;
-text-decoration:none;
-text-align:right;
-padding-right:2px;
+margin-left:18px;
 font-weight:600;
+color:#cfe8f3
+}
+
+    
+/* Hero */
+    
+.hero{
+display:grid;
+grid-template-columns:1fr 360px;
+gap:28px;
+align-items:center;
+margin-top:28px
+}
+    
+.card{
+background:var(--card);
+padding:22px;
+border-radius:14px;
+box-shadow:0 6px 30px rgba(2,6,23,0.6);
+backdrop-filter:blur(6px)
+}
+    
+h1{
+margin:0;
+font-size:28px
+}
+    
+.sub{
+color:var(--muted);
+margin-top:8px
+}
+    
+.cta{
+display:flex;
 gap:12px;
+margin-top:18px
 }
-
-.box{
-border-radius:12px;
-background:#0b1220;
-margin-top:20px;
-padding-top:10px;
-margin-bottom:10px;
-padding-bottom:20px;
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
-
-}
-
-.intro{
-font-size:24px;
-color:white;
-font-weight:600;
-margin-top:3px
-}
-
-.small{
-margin-top:4px;
-margin-bottom:6px;
-
-}
-
+    
 .btn{
-background:gray;
-padding:3px 5px;
-border-radius:14px;
-color:white;
-margin-left:4px;
-}
-
-
-.btn2{
-background:#60a5fa;
-color:white;
-padding:8px 6px;
-border-radius:14px;
-margin-top:14px;
-margin-left:5px;
-margin-bottom:40px;}
-
-
-table{
-background:white;
-border-collapse:collapse;
-width:70%;
-
-}
-
-table td,table th{
-border:1px solid #ddd;
-text-align:left;
-padding:12px 16px;
-}
-
-table thead{
-background:purple;
-color:white;
-}
-
-.smbox{
-width:30%;
-background:gray;
+background:var(--accent);
+color:#022;
+padding:10px 14px;
 border-radius:10px;
-padding:6px 10px;
-margin-left:8px;
-margin-top:10px;
+font-weight:700;
+border:none;
+cursor:pointer
+}
+    
+.btn-outline{
+background:transparent;
+border:1px solid rgba(255,255,255,0.06);
+color:#cfe8f3;
+padding:10px 14px;
+border-radius:10px;
+cursor:pointer
 }
 
-.marq{
-border:1px dashed rgba(255,255,255,0.15);
+    
+/* Skills */
+    
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:14px
+}
+    
+.skill{
+background:var(--glass);
+padding:8px 10px;
+border-radius:999px;
+font-weight:600;
+color:#dbeaf2
+}
+
+    
+/* Portfolio grid */
+    
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:20px
+}
+    
+.work{
+height:160px;
+border-radius:12px;
 overflow:hidden;
-padding:8px;
-white-space:nowrap;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:flex-end;
+padding:12px;
+color:white;
+font-weight:700;
+text-shadow:0 2px 12px rgba(0,0,0,0.6)
 }
 
-.marq span{
-animation:marquee 12s linear infinite;
-display:inline-block;
-padding-left:100%;
-color:#ddd;
-
+    
+/* Services & reviews */
+    
+.two-col{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:20px
+}
+    
+.service{
+padding:14px;
+border-radius:10px;
+background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)
 }
 
-.container{
+   
+/* Contact */
+    
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+    
+input,textarea,select{
+padding:10px;
+border-radius:8px;
+border:1px solid rgba(255,255,255,0.04);
+background:transparent;
+color:#dfeff9
+}
+    
+textarea{
+grid-column:1/-1;
+min-height:120px
+}
+    
+.small{
+font-size:13px;
+color:var(--muted)
+}
+
+    
+footer{
+margin-top:28px;
+color:var(--muted);
+font-size:13px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+    
+/* Responsive */
+    
+@media (max-width:900px){
+      
+.hero{
+grid-template-columns:1fr
+}
+      
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+      
+.two-col{
+grid-template-columns:1fr
+}
+      
+form{
+grid-template-columns:1fr
+}
+    }
+    
+@media (max-width:520px){
+      
+.grid{
+grid-template-columns:1fr
+}
+      
+nav{
+display:none
+}
+    }
+
+    
+/* WhatsApp floating */
+    
+.whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+background:#25d366;
+color:white;
+padding:12px 14px;
+border-radius:999px;
+box-shadow:0 8px 26px rgba(2,6,23,0.6);
 display:flex;
 align-items:center;
-}
-
-.smbox h3{
-animation:blink 1s steps(1,end) infinite;
-}
-
-.name{
-text-shadow:0 0 6px white,0 0 12px white;
-animation:glow 1s ease-in-out infinite;
+gap:8px
 }
 
 
 
-
-
-
-
-
-
-
-</style
+</style>
 
 </head>
-
 <body>
-
-<header>
-      
-<div class="brand">
-        <div class="logo">AF</div>
-      <div>
-          <div style="font-weight:700;color:#ffffff;" class="name">AFTHAB RAHMAN</div>
-          <div class="small">Web Designer • HTML • CSS</div>
+  z<div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AR</div>
+        <div>
+          <div style="font-weight:700">AFTHAB RAHMAN</div>
+          <div class="small">Web Designer • HTML • CSS • WordPress</div>
         </div>
       </div>
       <nav>
-        <a href="#table">table</a>
-        <a href="#images">images</a> 
-        <a href="#videos">videos</a>
-        <a href="#text">text effects</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
-
-<div class="box">
-
-<div class="intro">Hi-i will show you the things i can do in my web with only html and css </div>
-
-<div class="small">I create responsive landing pages, small business websites, portfolios, and WordPress sites. Fast delivery, clear pricing, and UPI payment accepted.</div>
-
-<div class="flex">
-<strong class="btn">table</strong>
-<strong class="btn">images</strong>
-<strong class="btn">marquee</strong>
-<strong class="btn">blink</strong>
-<strong class="btn">boxes</strong>
-<br><br>
-<strong class="btn2">about me</strong>
-<strong class="btn2">about web</strong>
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-<section id="table">
-<center><h2 style="color:white;">TABLE (example)</h2>
-
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>place</th>
-<th>good/bad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>afthab</td>
-<td>ummanazhi</td>
-<td>bad</td>
-</tr>
-<tr>
-<td>rizwan</td>
-<td>ummanazhi</td>
-<td>bad</td>
-</tr>
-<tr>
-<td>sajina</td>
-<td>united</td>
-<td>good</td>
-</tr>
-</tbody>
-</table>
-
-</center>
-
-</section>
-</div>
-
-
-
-
-
-
-
-<div class="box">
-<section id="images">
-<center><h2 style="color:white">IMAGES (example)</h2>
-<img src="image9.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-<img src="image8.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-<img src="image0.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-<br><br>
-<img src="image7.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-<img src="image6.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-<img src="image5.png" width="30%" style="margin-left:8px;margin-right:4px;border:1px solid #ddd;">
-</center>
-</section>
-</div>
-
-
-<div class="box">
-<section id="videos">
-
-<center>
-<h2 style="color:white">VIDEO (example)</h2>
-<video src="myvideo.mp4" controls width="50%" style="border:1px solid #ddd;"></center>
-</section>
-</div>
-
-
-
-<div class="box">
-<section id="text">
-
-<center>
-
-<h2 style="color:white">TEXT EFFECTS</h2>
-
-<div class="container">
-
-<div class="smbox">
-
-
-<div class="marq"> <span>file///C/Users/user/Desktop/web%20designing/it.html#images</span></div>
-
-</div>
-
-
-
-
-<div class="smbox">
-
-<center><h3 style="color:white">BLINK</h3>
-</center>
-
-
-
-
-</div>
-
-</div>
-
-</center>
-
-</section>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <section class="hero">
+      <div class="card">
+        <h1>Hi — I build beautiful websites that help businesses get customers</h1>
+        <p class="sub">I create responsive landing pages, small business websites, portfolios, and WordPress sites. Fast delivery, clear pricing, and UPI payment accepted.</p>
+
+        <div class="skills">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">WordPress</div>
+          <div class="skill">Responsive</div>
+          <div class="skill">UI/UX</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="#contact">Hire Me</a>
+          <a class="btn-outline" href="#portfolio">See Work</a>
+        </div>
+
+        <div style="margin-top:12px;font-size:14px;color:var(--muted)">Starting at <strong>₹1,000</strong> — 50% advance • UPI / PayTM accepted</div>
+      </div>
+
+      <aside class="card" style="display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center">
+        <div style="width:100%;height:200px;border-radius:10px;background-image:linear-gradient(135deg,#0b1220,#071021);display:flex;align-items:center;justify-content:center;color:var(--muted)">Preview / Profile Screenshot</div>
+        <div style="width:100%;display:flex;gap:8px">
+          <a class="btn" href="#contact" style="flex:1;text-align:center">Start Project</a>
+          <a class="btn-outline" style="flex:1;text-align:center" href="mailto:you@example.com">Email</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="two-col">
+      <div class="service card">
+        <h3>Services</h3>
+        <ul style="color:var(--muted);margin-top:8px">
+          <li>Landing pages — quick 1-day delivery</li>
+          <li>Small business websites (4–6 pages)</li>
+          <li>WordPress setup & theme customization</li>
+          <li>Responsive redesign & speed optimization</li>
+        </ul>
+      </div>
+
+      <div class="service card">
+        <h3>Quick Packages</h3>
+        <div style="margin-top:8px;color:var(--muted)">
+          <div>Basic Landing — ₹1,000 (1 page)</div>
+          <div>Business Starter — ₹3,000 (upto 4 pages)</div>
+          <div>WordPress Setup — ₹2,000 (theme + 1 page)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2 style="margin-top:20px">Portfolio</h2>
+      <div class="grid">
+        <div class="work" style="background-image:url('https://picsum.photos/id/1015/800/600')">Salon Landing</div>
+        <div class="work" style="background-image:url('https://picsum.photos/id/1011/800/600')">Cafe Website</div>
+        <div class="work" style="background-image:url('https://picsum.photos/id/1018/800/600')">Portfolio Site</div>
+        <div class="work" style="background-image:url('https://picsum.photos/id/1027/800/600')">Real Estate</div>
+        <div class="work" style="background-image:url('https://picsum.photos/id/1033/800/600')">Clinic Site</div>
+        <div class="work" style="background-image:url('https://picsum.photos/id/1041/800/600')">Restaurant</div>
+      </div>
+    </section>
+
+    <section id="reviews" class="two-col">
+      <div class="card">
+        <h3>What clients say</h3>
+        <div style="margin-top:12px;color:var(--muted)">
+          "Delivered fast and exactly what we needed" — Raj, Salon Owner
+        </div>
+        <div style="margin-top:8px;color:var(--muted)">
+          "Great communication and affordable rates" — Meera, Cafe Owner
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Locations & Map</h3>
+        <div style="margin-top:10px;color:var(--muted)">Kalladikode, India</div>
+        <div style="margin-top:10px">
+          <!-- Replace the src below with your Google Maps embed link -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019..." style="width:100%;height:140px;border:0;border-radius:8px"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:20px" class="card">
+      <h3>Contact & Booking</h3>
+      <p class="small">Fill the form or message me on WhatsApp. I accept UPI / Paytm for instant payments.</p>
+
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="Email or phone" required>
+        <input type="text" id="project" placeholder="Project type (e.g. Landing page)" required>
+        <input type="text" id="budget" placeholder="Budget (₹)" >
+        <textarea id="details" placeholder="Short project details"></textarea>
+        <button type="submit" class="btn" style="grid-column:1/-1">Send Request</button>
+      </form>
+
+      <script>
+        function handleSubmit(e){
+          e.preventDefault();
+          const name=document.getElementById('name').value.trim();
+          const email=document.getElementById('email').value.trim();
+          const project=document.getElementById('project').value.trim();
+          const budget=document.getElementById('budget').value.trim();
+          const details=document.getElementById('details').value.trim();
+          const body=`Name: ${name}%0AContact: ${email}%0AProject: ${project}%0ABudget: ${budget}%0ADetails:%0A${details}`;
+          // Default: open WhatsApp chat. Replace number with your UPI/pay link or email if you prefer.
+          const phone = '9048246458'; // <-- REPLACE with your phone (country code + number)
+          const wa = `https://wa.me/${phone}?text=${body}`;
+          window.open(wa,'_blank');
+        }
+      </script>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> AFTHAB RAHMAN — Web Designer</div>
+      <div>UPI: <strong>yourupi@bank</strong> • Email: you@example.com</div>
+    </footer>
+  </div>
+
+  <a class="whatsapp" href="https://wa.me/9048246458" target="_blank">Message on WhatsApp</a>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
