@@ -1,426 +1,361 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AFTHAB RAHMAN — Web Designer</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<title>THE EXCHANGE</title>
 <style>
 
+body{
+padding:5% 10%;
+background:#f10724;
+color:#ffffff;
 
-:root{
---bg:#0f1724;
---card:#0b1220;
---muted:#9aa4b2;
---accent:#06b6d4;
---glass:rgba(255,255,255,0.03)
 }
-    
-*{
-box-sizing:border-box
-}
-    
-html,body{
-height:100%;
-margin:0;
-font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-color:#e6eef6;
-background:linear-gradient(180deg,#071021 0%, #071726 100%)
-}
-    
-a{
-color:var(--accent);
-text-decoration:none
-}
-    
+
 .container{
-max-width:1100px;
-margin:28px auto;
-padding:24px
-}
-
-    
-/* Header */
-    
-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:16px
-}
-    
-.brand{
-display:flex;
-align-items:center;
-gap:12px
-}
-    
-.logo{
-width:56px;
-height:56px;
-border-radius:10px;
-background:linear-gradient(135deg,var(--accent),#7c3aed);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#021026;
-font-weight:700;
-font-size:18px
-}
-    
-nav a{
-margin-left:18px;
-font-weight:600;
-color:#cfe8f3
-}
-
-    
-/* Hero */
-    
-.hero{
-display:grid;
-grid-template-columns:1fr 360px;
-gap:28px;
-align-items:center;
-margin-top:28px
-}
-    
-.card{
-background:var(--card);
-padding:22px;
+padding:17px 23px;
+margin-top:9px;
+background:linear-gradient(180deg,#071021 0%, #071726 100%);
 border-radius:14px;
-box-shadow:0 6px 30px rgba(2,6,23,0.6);
-backdrop-filter:blur(6px)
-}
-    
-h1{
-margin:0;
-font-size:28px
-}
-    
-.sub{
-color:var(--muted);
-margin-top:8px
-}
-    
-.cta{
-display:flex;
-gap:12px;
-margin-top:18px
-}
-    
-.btn{
-background:var(--accent);
-color:#022;
-padding:10px 14px;
-border-radius:10px;
-font-weight:700;
-border:none;
-cursor:pointer
-}
-    
-.btn-outline{
-background:transparent;
-border:1px solid rgba(255,255,255,0.06);
-color:#cfe8f3;
-padding:10px 14px;
-border-radius:10px;
-cursor:pointer
+box-shadow:rgba(0,0,0,0.5);
 }
 
-    
-/* Skills */
-    
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:14px
-}
-    
-.skill{
-background:var(--glass);
-padding:8px 10px;
-border-radius:999px;
-font-weight:600;
-color:#dbeaf2
+@keyframes glow{0%{text-shadow:0 0 6px gold,0 0 12px gold}25%{text-shadow:0 0 6px gold,0 0 12px gold}50%{text-shadow:0 0 14px gold,0 0 28px gold}75%{text-shadow:0 0 6px gold,0 0 12px gold}100%{text-shadow:0 0 6px gold,0 0 12px gold}}
+
+
+.main{
+colour:white;
+font-size:38px;
+font-weight:900;
+animation:glow 2s ease-in-out infinite;
 }
 
-    
-/* Portfolio grid */
-    
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-margin-top:20px
-}
-    
-.work{
-height:160px;
-border-radius:12px;
-overflow:hidden;
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:flex-end;
-padding:12px;
+center{
 color:white;
-font-weight:700;
-text-shadow:0 2px 12px rgba(0,0,0,0.6)
+font-size:19px;
+text-align:left;
 }
 
-    
-/* Services & reviews */
-    
-.two-col{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:20px
-}
-    
-.service{
-padding:14px;
-border-radius:10px;
-background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)
-}
-
-   
-/* Contact */
-    
-form{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
-}
-    
-input,textarea,select{
-padding:10px;
-border-radius:8px;
-border:1px solid rgba(255,255,255,0.04);
-background:transparent;
-color:#dfeff9
-}
-    
-textarea{
-grid-column:1/-1;
-min-height:120px
-}
-    
-.small{
-font-size:13px;
-color:var(--muted)
-}
-
-    
-footer{
-margin-top:28px;
-color:var(--muted);
-font-size:13px;
-display:flex;
-justify-content:space-between;
-align-items:center
-}
-
-    
-/* Responsive */
-    
-@media (max-width:900px){
-      
-.hero{
-grid-template-columns:1fr
-}
-      
-.grid{
-grid-template-columns:repeat(2,1fr)
-}
-      
-.two-col{
-grid-template-columns:1fr
-}
-      
-form{
-grid-template-columns:1fr
-}
-    }
-    
-@media (max-width:520px){
-      
-.grid{
-grid-template-columns:1fr
-}
-      
-nav{
-display:none
-}
-    }
-
-    
-/* WhatsApp floating */
-    
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-background:#25d366;
+.main2{
 color:white;
-padding:12px 14px;
-border-radius:999px;
-box-shadow:0 8px 26px rgba(2,6,23,0.6);
-display:flex;
-align-items:center;
-gap:8px
+font-size:24px;
+font-weight:500;
+text-decoration:underline;
+}
+
+
+.container1{
+padding:17px 23px;
+margin-top:20px;
+background:linear-gradient(180deg,#071021 0%, #071726 100%);
+border-radius:14px;
+box-shadow:rgba(0,0,0,0.5);
 }
 
 
 
-</style>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style
 </head>
+
 <body>
-  z<div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">AR</div>
-        <div>
-          <div style="font-weight:700">AFTHAB RAHMAN</div>
-          <div class="small">Web Designer • HTML • CSS • WordPress</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="card">
-        <h1>Hi — I build beautiful websites that help businesses get customers</h1>
-        <p class="sub">I create responsive landing pages, small business websites, portfolios, and WordPress sites. Fast delivery, clear pricing, and UPI payment accepted.</p>
+<center>
 
-        <div class="skills">
-          <div class="skill">HTML</div>
-          <div class="skill">CSS</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">WordPress</div>
-          <div class="skill">Responsive</div>
-          <div class="skill">UI/UX</div>
-        </div>
+ <div class="main">മാറ്റം (The Exchange)</div><br><br>
 
-        <div class="cta">
-          <a class="btn" href="#contact">Hire Me</a>
-          <a class="btn-outline" href="#portfolio">See Work</a>
-        </div>
+Genre: Visual / Symbolic / Anti-Drug<br>
+Duration: ~5 Minutes<br>
 
-        <div style="margin-top:12px;font-size:14px;color:var(--muted)">Starting at <strong>₹1,000</strong> — 50% advance • UPI / PayTM accepted</div>
-      </div>
+Dialogues: None (only Narration + Music)<br>
 
-      <aside class="card" style="display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center">
-        <div style="width:100%;height:200px;border-radius:10px;background-image:linear-gradient(135deg,#0b1220,#071021);display:flex;align-items:center;justify-content:center;color:var(--muted)">Preview / Profile Screenshot</div>
-        <div style="width:100%;display:flex;gap:8px">
-          <a class="btn" href="#contact" style="flex:1;text-align:center">Start Project</a>
-          <a class="btn-outline" style="flex:1;text-align:center" href="mailto:you@example.com">Email</a>
-        </div>
-      </aside>
-    </section>
+Language: Malayalam<br><br>
 
-    <section id="services" class="two-col">
-      <div class="service card">
-        <h3>Services</h3>
-        <ul style="color:var(--muted);margin-top:8px">
-          <li>Landing pages — quick 1-day delivery</li>
-          <li>Small business websites (4–6 pages)</li>
-          <li>WordPress setup & theme customization</li>
-          <li>Responsive redesign & speed optimization</li>
-        </ul>
-      </div>
+Main Cast:<br>
 
-      <div class="service card">
-        <h3>Quick Packages</h3>
-        <div style="margin-top:8px;color:var(--muted)">
-          <div>Basic Landing — ₹1,000 (1 page)</div>
-          <div>Business Starter — ₹3,000 (upto 4 pages)</div>
-          <div>WordPress Setup — ₹2,000 (theme + 1 page)</div>
-        </div>
-      </div>
-    </section>
 
-    <section id="portfolio">
-      <h2 style="margin-top:20px">Portfolio</h2>
-      <div class="grid">
-        <div class="work" style="background-image:url('https://picsum.photos/id/1015/800/600')">Salon Landing</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1011/800/600')">Cafe Website</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1018/800/600')">Portfolio Site</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1027/800/600')">Real Estate</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1033/800/600')">Clinic Site</div>
-        <div class="work" style="background-image:url('https://picsum.photos/id/1041/800/600')">Restaurant</div>
-      </div>
-    </section>
+Aarav – A young man (18–20)<br>
 
-    <section id="reviews" class="two-col">
-      <div class="card">
-        <h3>What clients say</h3>
-        <div style="margin-top:12px;color:var(--muted)">
-          "Delivered fast and exactly what we needed" — Raj, Salon Owner
-        </div>
-        <div style="margin-top:8px;color:var(--muted)">
-          "Great communication and affordable rates" — Meera, Cafe Owner
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>Locations & Map</h3>
-        <div style="margin-top:10px;color:var(--muted)">Kalladikode, India</div>
-        <div style="margin-top:10px">
-          <!-- Replace the src below with your Google Maps embed link -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019..." style="width:100%;height:140px;border:0;border-radius:8px"></iframe>
-        </div>
-      </div>
-    </section>
+Shopkeeper – Mysterious, expressionless<br><br>
 
-    <section id="contact" style="margin-top:20px" class="card">
-      <h3>Contact & Booking</h3>
-      <p class="small">Fill the form or message me on WhatsApp. I accept UPI / Paytm for instant payments.</p>
 
-      <form onsubmit="handleSubmit(event)">
-        <input type="text" id="name" placeholder="Your name" required>
-        <input type="email" id="email" placeholder="Email or phone" required>
-        <input type="text" id="project" placeholder="Project type (e.g. Landing page)" required>
-        <input type="text" id="budget" placeholder="Budget (₹)" >
-        <textarea id="details" placeholder="Short project details"></textarea>
-        <button type="submit" class="btn" style="grid-column:1/-1">Send Request</button>
-      </form>
+Optional extras: Background silhouettes or shadow people<br>
 
-      <script>
-        function handleSubmit(e){
-          e.preventDefault();
-          const name=document.getElementById('name').value.trim();
-          const email=document.getElementById('email').value.trim();
-          const project=document.getElementById('project').value.trim();
-          const budget=document.getElementById('budget').value.trim();
-          const details=document.getElementById('details').value.trim();
-          const body=`Name: ${name}%0AContact: ${email}%0AProject: ${project}%0ABudget: ${budget}%0ADetails:%0A${details}`;
-          // Default: open WhatsApp chat. Replace number with your UPI/pay link or email if you prefer.
-          const phone = '9048246458'; // <-- REPLACE with your phone (country code + number)
-          const wa = `https://wa.me/${phone}?text=${body}`;
-          window.open(wa,'_blank');
-        }
-      </script>
-    </section>
 
-    <footer>
-      <div>© <span id="year"></span> AFTHAB RAHMAN — Web Designer</div>
-      <div>UPI: <strong>yourupi@bank</strong> • Email: you@example.com</div>
-    </footer>
-  </div>
 
-  <a class="whatsapp" href="https://wa.me/9048246458" target="_blank">Message on WhatsApp</a>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+---
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+
+
+
+<div class="container">
+
+  <b class="main2">SCENE 1: തെരുവും കടയും (The Street and the Shop)</b><br><br>
+
+Time: 0:00 – 1:00<br>
+
+Location: Dimly lit street, evening after rain.<br><br>
+
+SHOT 1 – Wide shot – Aarav walking alone under a flickering streetlight. Raindrops on the road reflect light.
+Lighting: Cold blue tone.<br>
+Sound: Slow piano + light rain + faint heartbeat.<br><br>
+
+SHOT 2 – Tracking shot (behind Aarav) – Camera follows his steps.<br><br>
+SHOT 3 – Aarav stops, looks to his right — a faint golden glow appears from an unknown alley.<br><br>
+
+SHOT 4 – Close-up of Aarav’s eyes widening with curiosity.<br><br>
+
+SHOT 5 – Medium shot – He walks toward the glow and finds a small antique shop.
+A glowing signboard reads:<br>
+
+> “ദുഃഖം വിട്ട് സന്തോഷം നേടാം.”
+
+<br><br>
+
+SHOT 6 – Over-the-shoulder shot – Aarav pushes the door open; a soft bell sound.<br>
+<br>
+NARRATION (soft voice):<br>
+
+> “ആശയുടെ വേഷം ധരിച്ച ഇരുട്ടിലേക്കാണ് അവൻ കയറിയത്…”
+
+
+
+
+---
+
+</div>
+
+
+<br><br><br>
+
+
+
+
+
+<div class="container">
+
+  <b class="main2">SCENE 2: ആദ്യ ഇടപാട് (The First Trade)</b><br><br>
+
+Time: 1:00 – 2:00<br>
+
+Location: Inside the shop — dim golden light, smoky atmosphere.<br><br>
+
+SHOT 7 – Wide shot – Shelves filled with glowing bottles labeled ‘ആത്മവിശ്വാസം’, ‘സന്തോഷം’, ‘ശാന്തി’.<br><br>
+SHOT 8 – Close-up of Aarav’s hand touching a bottle.<br><br>
+
+SHOT 9 – Insert shot – Label reads “ആത്മവിശ്വാസം.”<br><br>
+
+SHOT 10 – Medium shot – Shopkeeper slides the bottle toward him. No eye contact, slow movement.<br><br>
+
+SHOT 11 – Close-up – Aarav hesitates, then places a few coins on the counter (they shimmer faintly).<br>
+
+Lighting: Golden at first, turns slightly dim when he drinks the potion.<br><br>
+
+SHOT 12 – Extreme close-up – Aarav’s eyes brighten for a second, then fade.
+<br>
+NARRATION:
+
+> “ഓരോ സന്തോഷത്തിനും വിലയുണ്ട്… കാണാൻ കഴിയാത്തതെങ്കിലും തീർച്ചയായുണ്ട്.”
+
+
+<br><br>
+
+---
+
+
+
+
+</div>
+
+
+
+<br><br>
+
+
+
+
+
+<div class="container">
+
+
+  <b class="main2">SCENE 3: വില കൂടുന്നു (The Cost Increases)</b><br><br>
+
+Time: 2:00 – 3:30<br><br>
+
+SHOT 13 – Montage sequence:<br>
+
+Aarav returning to the shop again and again.
+
+Each time, he looks weaker.
+
+Shopkeeper demands different things: a photo, bracelet, book.
+
+Aarav gives them one by one.
+<br>
+
+Lighting: Each visit → darker tones, more shadows on Aarav’s face.
+Music: Slightly distorted violin + heartbeat intensifies.<br><br>
+
+SHOT 14 – Close-up – Aarav’s trembling hand giving away a family photo.<br><br>
+SHOT 15 – Low angle shot – Shopkeeper’s expression remains blank, symbolic of addiction’s control.<br><br>
+
+NARRATION:
+
+> “താൻ വിറ്റുകൊടുക്കുന്നത് എത്രയെന്നു പോലും അവൻ തിരിച്ചറിയാതെ പോയി…”
+
+
+<br><br>
+
+---
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<br><br>
+<div class="container">
+
+
+ <b class="main2">SCENE 4: തിരിച്ചറിവ് (The Realization)</b>
+<br><br>
+Time: 3:30 – 4:30<br><br>
+
+SHOT 16 – Dark interior room. Bottles scattered everywhere, glowing faintly. Aarav kneels in the center.<br><br>
+SHOT 17 – Close-up – His reflection in a broken mirror — pale face, empty eyes.<br><br>
+SHOT 18 – Insert – Bottles flicker and lose light one by one.<br><br>
+SHOT 19 – Slow motion – Aarav drops a bottle. It shatters.<br>
+
+Sound: Glass breaking echoes → fades into silence.
+<br>
+Lighting: Only a single white beam from the window.
+<br><br>
+NARRATION:
+
+> “മയക്കുമരുന്ന് തരുന്നത് ഒന്നുമല്ല… അത് മോഷ്ടിക്കുന്നത് മാത്രം.”
+
+
+<br><br>
+
+---
+
+
+<br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container1">
+
+
+
+  <b class="main2">SCENE 5: വെളിച്ചത്തിലേക്ക് (Towards the Light)</b><br><br>
+
+Time: 4:30 – 5:00<br><br>
+
+SHOT 20 – Wide shot – Morning sunlight through trees. Aarav slowly walks out of darkness into bright light.<br><br>
+SHOT 21 – Close-up – His face calm, eyes closed, breathing deep.<br>
+
+Sound: Hopeful music (piano + soft strings).
+<br><br>
+SHOT 22 – Camera tilts up toward the sky — bright sunlight fills the frame.<br>
+<br>
+NARRATION:
+
+> “ഒരു വിനിമയം, എല്ലാം നഷ്ടമാക്കും. അതിൽ നിന്നും അകന്നു നിൽക്കൂ…”
+
+<br><br>
+
+ON-SCREEN TEXT:
+
+> “മാറ്റം വേണ്ട — മയക്കുമരുന്ന് വേണ്ട.”
+(Say NO to Drugs)
+
+<br><br>
+
+Music fades out slowly. Screen to black.
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
