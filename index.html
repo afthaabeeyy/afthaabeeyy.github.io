@@ -1,362 +1,225 @@
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="utf-8">
-<title>THE EXCHANGE</title>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Mystery for Shifana — by Afthab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rose:#ffb3d1;
+      --lav:#b59cff;
+      --accent:#ff87b8;
+      --bg1:#2b0a1f;
+      --bg2:#3a0f3f;
+      --text:#fffdfc;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Montserrat,system-ui,-apple-system,Segoe UI;color:var(--text);}
 
-body{
-padding:5% 5%;
-background:#f10724;
-color:#ffffff;
+    body{
+      background:linear-gradient(135deg,var(--rose)10%,transparent 30%), radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.03), transparent 20%), linear-gradient(180deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
 
-}
+    /* stars + subtle moving lights */
+    .back{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    .spark{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.9);filter:blur(1px);opacity:0.9;mix-blend-mode:screen;}
 
-.container{
-padding:17px 23px;
-margin-top:9px;
-background:linear-gradient(180deg,#071021 0%, #071726 100%);
-border-radius:14px;
-box-shadow:rgba(0,0,0,0.5);
-}
+    header{position:fixed;top:20px;left:20px;font-family:Great Vibes,cursive;font-size:30px;color:var(--accent);z-index:6;text-shadow:0 6px 20px rgba(0,0,0,0.5)}
 
-@keyframes glow{0%{text-shadow:0 0 6px gold,0 0 12px gold}25%{text-shadow:0 0 6px gold,0 0 12px gold}50%{text-shadow:0 0 14px gold,0 0 28px gold}75%{text-shadow:0 0 6px gold,0 0 12px gold}100%{text-shadow:0 0 6px gold,0 0 12px gold}}
+    .card{
+      position:relative;z-index:4;max-width:880px;width:100%;border-radius:20px;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter: blur(8px);box-shadow:0 14px 50px rgba(8,6,12,0.6);
+      display:flex;flex-direction:column;align-items:center;gap:18px;min-height:520px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);
+    }
 
+    .hero{margin-top:4px;text-align:center}
+    .hero h1{font-family:Great Vibes,cursive;font-size:48px;color:var(--rose);text-shadow:0 0 30px rgba(255,171,200,0.12);letter-spacing:1px}
+    .hero p{color:rgba(255,255,255,0.8);margin-top:4px;font-weight:300}
 
-.main{
-colour:white;
-font-size:38px;
-font-weight:900;
-animation:glow 2s ease-in-out infinite;
-}
+    .note{
+      width:86%;background:rgba(255,255,255,0.02);border-radius:14px;padding:18px;min-height:150px;display:flex;align-items:flex-start;justify-content:flex-start;cursor:pointer;transition:transform .28s ease,box-shadow .28s ease;
+    }
+    .note:active{transform:translateY(2px);}    
 
-center{
-color:white;
-font-size:19px;
-text-align:left;
-}
+    .type{font-size:18px;line-height:1.6;color:rgba(255,250,250,0.95);white-space:pre-wrap;text-align:left;width:100%}
+    .cursor{display:inline-block;width:10px;height:22px;background:var(--accent);border-radius:3px;margin-left:6px;animation:blink 1s steps(2) infinite}
+    @keyframes blink{50%{opacity:0}}
 
-.main2{
-color:white;
-font-size:24px;
-font-weight:500;
-text-decoration:underline;
-}
+    .secret{width:75%;max-width:640px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 12px 40px rgba(0,0,0,0.5);opacity:0;transform:translateY(18px) scale(.98);transition:all .5s cubic-bezier(.2,.9,.2,1);text-align:center}
+    .secret.show{opacity:1;transform:translateY(0) scale(1)}
+    .secret h2{font-family:Great Vibes,cursive;font-size:34px;color:var(--lav);margin-bottom:6px}
+    .secret p{font-size:18px;color:rgba(255,250,250,0.95);line-height:1.5}
+    .signature{margin-top:12px;font-family:Great Vibes,cursive;font-size:20px;color:rgba(255,255,255,0.9)}
 
+    .controls{display:flex;gap:12px;margin-top:18px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;color:rgba(255,255,255,0.9);cursor:pointer;transition:all .25s}
+    .btn:hover{background:rgba(255,255,255,0.06);box-shadow:0 6px 30px rgba(255,136,184,0.08)}
 
-.container1{
-padding:17px 23px;
-margin-top:20px;
-background:linear-gradient(180deg,#071021 0%, #071726 100%);
-border-radius:14px;
-box-shadow:rgba(0,0,0,0.5);
-}
+    /* floating hearts */
+    .heart{position:absolute;font-size:22px;opacity:0.95;transform:translateY(0);animation:floatUp 4s ease-in forwards;z-index:5}
+    @keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-360px) scale(.6);opacity:0}}
 
+    /* small overlay reveal (tap to reveal) */
+    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.5));display:flex;align-items:center;justify-content:center;z-index:5;flex-direction:column;backdrop-filter: blur(2px);}
+    .reveal-button{background:linear-gradient(90deg,var(--rose),var(--lav));padding:14px 20px;border-radius:999px;color:#fff;font-weight:600;border:none;box-shadow:0 10px 40px rgba(255,140,180,0.14);cursor:pointer}
+    .reveal-sub{margin-top:12px;color:rgba(255,255,255,0.9)}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style
+    @media(max-width:520px){
+      .hero h1{font-size:36px}
+      .card{padding:18px}
+      .note{width:92%;min-height:120px}
+      .secret{width:90%}
+    }
+  </style>
 </head>
-
 <body>
 
-<center>
-
- <div class="main">മാറ്റം<br>(The Exchange)</div><br><br>
-
-Genre: Visual / Symbolic / Anti-Drug<br>
-Duration: ~5 Minutes<br>
-
-Dialogues: None (only Narration + Music)<br>
-
-Language: Malayalam<br><br>
-
-Main Cast:<br>
-
-
-Aarav – A young man (18–20)<br>
-
-
-Shopkeeper – Mysterious, expressionless<br><br>
-
-
-Optional extras: Background silhouettes or shadow people<br>
-
-
-
-
----
-</center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br><br>
-
-
-
-<div class="container">
-
-  <b class="main2">SCENE 1: തെരുവും കടയും (The Street and the Shop)</b><br><br>
-
-Time: 0:00 – 1:00<br>
-
-Location: Dimly lit street, evening after rain.<br><br>
-
-SHOT 1 – Wide shot – Aarav walking alone under a flickering streetlight. Raindrops on the road reflect light.
-Lighting: Cold blue tone.<br>
-Sound: Slow piano + light rain + faint heartbeat.<br><br>
-
-SHOT 2 – Tracking shot (behind Aarav) – Camera follows his steps.<br><br>
-SHOT 3 – Aarav stops, looks to his right — a faint golden glow appears from an unknown alley.<br><br>
-
-SHOT 4 – Close-up of Aarav’s eyes widening with curiosity.<br><br>
-
-SHOT 5 – Medium shot – He walks toward the glow and finds a small antique shop.
-A glowing signboard reads:<br>
-
-> “ദുഃഖം വിട്ട് സന്തോഷം നേടാം.”
-
-<br><br>
-
-SHOT 6 – Over-the-shoulder shot – Aarav pushes the door open; a soft bell sound.<br>
-<br>
-NARRATION (soft voice):<br>
-
-> “ആശയുടെ വേഷം ധരിച്ച ഇരുട്ടിലേക്കാണ് അവൻ കയറിയത്…”
-
-
-
-
----
-
-</div>
-
-
-<br><br><br>
-
-
-
-
-
-<div class="container">
-
-  <b class="main2">SCENE 2: ആദ്യ ഇടപാട് (The First Trade)</b><br><br>
-
-Time: 1:00 – 2:00<br>
-
-Location: Inside the shop — dim golden light, smoky atmosphere.<br><br>
-
-SHOT 7 – Wide shot – Shelves filled with glowing bottles labeled ‘ആത്മവിശ്വാസം’, ‘സന്തോഷം’, ‘ശാന്തി’.<br><br>
-SHOT 8 – Close-up of Aarav’s hand touching a bottle.<br><br>
-
-SHOT 9 – Insert shot – Label reads “ആത്മവിശ്വാസം.”<br><br>
-
-SHOT 10 – Medium shot – Shopkeeper slides the bottle toward him. No eye contact, slow movement.<br><br>
-
-SHOT 11 – Close-up – Aarav hesitates, then places a few coins on the counter (they shimmer faintly).<br>
-
-Lighting: Golden at first, turns slightly dim when he drinks the potion.<br><br>
-
-SHOT 12 – Extreme close-up – Aarav’s eyes brighten for a second, then fade.
-<br>
-NARRATION:
-
-> “ഓരോ സന്തോഷത്തിനും വിലയുണ്ട്… കാണാൻ കഴിയാത്തതെങ്കിലും തീർച്ചയായുണ്ട്.”
-
-
-<br><br>
-
----
-
-
-
-
-</div>
-
-
-
-<br><br>
-
-
-
-
-
-<div class="container">
-
-
-  <b class="main2">SCENE 3: വില കൂടുന്നു (The Cost Increases)</b><br><br>
-
-Time: 2:00 – 3:30<br><br>
-
-SHOT 13 – Montage sequence:<br>
-
-Aarav returning to the shop again and again.
-
-Each time, he looks weaker.
-
-Shopkeeper demands different things: a photo, bracelet, book.
-
-Aarav gives them one by one.
-<br>
-
-Lighting: Each visit → darker tones, more shadows on Aarav’s face.
-Music: Slightly distorted violin + heartbeat intensifies.<br><br>
-
-SHOT 14 – Close-up – Aarav’s trembling hand giving away a family photo.<br><br>
-SHOT 15 – Low angle shot – Shopkeeper’s expression remains blank, symbolic of addiction’s control.<br><br>
-
-NARRATION:
-
-> “താൻ വിറ്റുകൊടുക്കുന്നത് എത്രയെന്നു പോലും അവൻ തിരിച്ചറിയാതെ പോയി…”
-
-
-<br><br>
-
----
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-<br><br>
-<div class="container">
-
-
- <b class="main2">SCENE 4: തിരിച്ചറിവ് (The Realization)</b>
-<br><br>
-Time: 3:30 – 4:30<br><br>
-
-SHOT 16 – Dark interior room. Bottles scattered everywhere, glowing faintly. Aarav kneels in the center.<br><br>
-SHOT 17 – Close-up – His reflection in a broken mirror — pale face, empty eyes.<br><br>
-SHOT 18 – Insert – Bottles flicker and lose light one by one.<br><br>
-SHOT 19 – Slow motion – Aarav drops a bottle. It shatters.<br>
-
-Sound: Glass breaking echoes → fades into silence.
-<br>
-Lighting: Only a single white beam from the window.
-<br><br>
-NARRATION:
-
-> “മയക്കുമരുന്ന് തരുന്നത് ഒന്നുമല്ല… അത് മോഷ്ടിക്കുന്നത് മാത്രം.”
-
-
-<br><br>
-
----
-
-
-<br><br>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container1">
-
-
-
-  <b class="main2">SCENE 5: വെളിച്ചത്തിലേക്ക് (Towards the Light)</b><br><br>
-
-Time: 4:30 – 5:00<br><br>
-
-SHOT 20 – Wide shot – Morning sunlight through trees. Aarav slowly walks out of darkness into bright light.<br><br>
-SHOT 21 – Close-up – His face calm, eyes closed, breathing deep.<br>
-
-Sound: Hopeful music (piano + soft strings).
-<br><br>
-SHOT 22 – Camera tilts up toward the sky — bright sunlight fills the frame.<br>
-<br>
-NARRATION:
-
-> “ഒരു വിനിമയം, എല്ലാം നഷ്ടമാക്കും. അതിൽ നിന്നും അകന്നു നിൽക്കൂ…”
-
-<br><br>
-
-ON-SCREEN TEXT:
-
-> “മാറ്റം വേണ്ട — മയക്കുമരുന്ന് വേണ്ട.”
-(Say NO to Drugs)
-
-<br><br>
-
-Music fades out slowly. Screen to black.
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- attempt autoplay: playsinline + autoplay attribute, JS will also try play() and listen for touchstart -->
+  <audio id="bgAudio" loop playsinline preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2021/09/09/audio_8d7e7f8a6d.mp3?filename=romantic-piano-11204.mp3" type="audio/mpeg">
+  </audio>
+
+  <header>Afthab ❤ Shifana</header>
+
+  <div class="back" id="back"></div>
+
+  <main class="card" role="main" id="card">
+    <div class="hero">
+      <h1>For My Mysterious Star</h1>
+      <p>Tap to reveal a little secret that I've written just for you.</p>
+    </div>
+
+    <div class="note" id="note" tabindex="0" aria-label="Reveal message">
+      <div class="type" id="typewriter"></div>
+    </div>
+
+    <div class="secret" id="secret">
+      <h2>My Secret</h2>
+      <p id="message">ante kiss aan nte fav 💖</p>
+      <div class="signature">— Afthab</div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="heartBtn">♡ Send Heart</button>
+      <button class="btn" id="replayBtn">Replay</button>
+      <button class="btn" id="muteBtn">Mute</button>
+    </div>
+
+    <!-- overlay to encourage playing on mobile (will auto-dismiss if autoplay succeeds) -->
+    <div class="overlay" id="overlay">
+      <button class="reveal-button" id="revealBtn">Tap to reveal</button>
+      <div class="reveal-sub">(If music doesn't start, tapping will start it)</div>
+    </div>
+  </main>
+
+  <script>
+    // generate soft sparks
+    const back = document.getElementById('back');
+    for(let i=0;i<30;i++){
+      const el=document.createElement('div');
+      el.className='spark';
+      const size = 4 + Math.random()*6;
+      el.style.width = size+'px'; el.style.height = size+'px';
+      el.style.left = Math.random()*100+'%'; el.style.top = Math.random()*100+'%';
+      el.style.opacity = 0.6 + Math.random()*0.4;
+      el.style.filter = 'blur(' + (Math.random()*2) + 'px)';
+      back.appendChild(el);
+    }
+
+    // hearts generator
+    function burstHeart(){
+      const heart = document.createElement('div');
+      heart.className='heart';
+      heart.style.left = (20 + Math.random()*60) + '%';
+      heart.style.bottom = '-20px';
+      heart.textContent = '❤';
+      heart.style.fontSize = (16 + Math.random()*30) + 'px';
+      document.body.appendChild(heart);
+      heart.addEventListener('animationend', ()=>heart.remove());
+    }
+
+    // Typewriter text
+    const lines = [
+      "Dear Shifana,",
+      "\nSome nights I look at the sky and I think of you.",
+      "\nYou are the quiet light that changed my dark.",
+      "\nKeep this little secret close.",
+      "\n— Afthab"
+    ];
+    const typeEl = document.getElementById('typewriter');
+    const secret = document.getElementById('secret');
+    let typing = false;
+
+    function typeAll(){
+      typeEl.innerHTML='';
+      let i=0,j=0;
+      typing=true;
+      function step(){
+        if(i>=lines.length){typing=false;return;}
+        const line = lines[i];
+        if(j<line.length){
+          typeEl.innerHTML = lines.slice(0,i).join('\n') + '\n' + line.slice(0,j+1) + '<span class="cursor"></span>';
+          j++;setTimeout(step,30 + Math.random()*40);
+        } else { i++; j=0; setTimeout(step,250); }
+      }
+      step();
+    }
+
+    // audio handling
+    const audio = document.getElementById('bgAudio');
+    const overlay = document.getElementById('overlay');
+
+    // try autoplay on load
+    function tryPlay(){
+      audio.volume = 0.45;
+      const p = audio.play();
+      if(p !== undefined){
+        p.then(()=>{
+          // autoplay succeeded
+          overlay.style.display = 'none';
+          document.getElementById('muteBtn').textContent = 'Mute';
+        }).catch(()=>{
+          // autoplay blocked, leave overlay visible; will start on first tap
+          overlay.style.display = '';
+        });
+      }
+    }
+    tryPlay();
+
+    // overlay reveal button
+    document.getElementById('revealBtn').addEventListener('click', ()=>{
+      // start audio if not playing
+      if(audio.paused){ audio.play().catch(()=>{}); }
+      overlay.style.display = 'none';
+      showSecret();
+    });
+
+    // clicking the note also reveals
+    document.getElementById('note').addEventListener('click', ()=>{ if(audio.paused) audio.play().catch(()=>{}); showSecret(); });
+
+    function showSecret(){
+      if(!typing) typeAll();
+      secret.classList.add('show');
+      // burst a few hearts
+      for(let i=0;i<6;i++){ setTimeout(burstHeart, i*180); }
+    }
+
+    // controls
+    document.getElementById('heartBtn').addEventListener('click', ()=>{ burstHeart(); secret.querySelector('p').textContent = 'ante kiss aan nte fav 💖'; secret.classList.add('show'); });
+    document.getElementById('replayBtn').addEventListener('click', ()=>{ typeEl.innerHTML=''; secret.classList.remove('show'); setTimeout(typeAll,200); });
+    document.getElementById('muteBtn').addEventListener('click', ()=>{ if(audio.paused){ audio.play(); document.getElementById('muteBtn').textContent='Mute'; } else { audio.pause(); document.getElementById('muteBtn').textContent='Play'; } });
+
+    // accessibility: allow Enter/Space to reveal
+    document.getElementById('note').addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); if(audio.paused) audio.play().catch(()=>{}); showSecret(); } });
+
+    // attempt to detect user gesture (some mobile browsers allow play after any touch)
+    function onFirstTouch(){ tryPlay(); window.removeEventListener('touchstart', onFirstTouch); }
+    window.addEventListener('touchstart', onFirstTouch, {passive:true});
+
+    // small initial hint pulse
+    setTimeout(()=>{ typeEl.innerHTML = '...'; },800);
+  </script>
 </body>
 </html>
-
