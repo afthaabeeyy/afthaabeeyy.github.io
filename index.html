@@ -1,169 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Mystery for Shifana — by Afthab</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Shifanaaaa 🎂💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --rose:#ffb3d1;
-      --lav:#b59cff;
-      --accent:#ff87b8;
-      --bg1:#2b0a1f;
-      --bg2:#3a0f3f;
-      --text:#fffdfc;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:Montserrat,system-ui,-apple-system,Segoe UI;color:var(--text);}
-
-    body{
-      background:linear-gradient(135deg,var(--rose)10%,transparent 30%), radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.03), transparent 20%), linear-gradient(180deg,var(--bg1),var(--bg2));
-      display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden;
-      -webkit-font-smoothing:antialiased;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ff5f9e, #ff9a9e);
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .back{position:fixed;inset:0;z-index:0;pointer-events:none;}
-    .spark{position:absolute;width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.9);filter:blur(1px);opacity:0.9;mix-blend-mode:screen;}
-
-    header{position:fixed;top:20px;left:20px;font-family:Great Vibes,cursive;font-size:26px;color:var(--accent);z-index:6;text-shadow:0 6px 20px rgba(0,0,0,0.5)}
-
-    .card{
-      position:relative;z-index:4;max-width:90%;width:100%;border-radius:20px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter: blur(8px);box-shadow:0 14px 50px rgba(8,6,12,0.6);
-      display:flex;flex-direction:column;align-items:center;gap:16px;min-height:480px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
     }
 
-    .hero{margin-top:4px;text-align:center}
-    .hero h1{font-family:Great Vibes,cursive;font-size:36px;color:var(--rose);text-shadow:0 0 20px rgba(255,171,200,0.12);letter-spacing:1px}
-    .hero p{color:rgba(255,255,255,0.8);margin-top:4px;font-weight:300}
+    .card {
+      width: 100%;
+      max-width: 380px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 28px 22px;
+      animation: fadeUp 1.2s ease;
+    }
 
-    .note{width:100%;background:rgba(255,255,255,0.02);border-radius:14px;padding:14px;min-height:120px;display:flex;align-items:flex-start;justify-content:flex-start;cursor:pointer;transition:transform .28s ease,box-shadow .28s ease;}
-    .note:active{transform:translateY(2px);}    
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+    }
 
-    .type{font-size:16px;line-height:1.6;color:rgba(255,250,250,0.95);white-space:pre-wrap;text-align:left;width:100%}
-    .cursor{display:inline-block;width:8px;height:20px;background:var(--accent);border-radius:3px;margin-left:4px;animation:blink 1s steps(2) infinite}
-    @keyframes blink{50%{opacity:0}}
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
 
-    .secret{width:90%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:16px;padding:16px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 12px 40px rgba(0,0,0,0.5);opacity:0;transform:translateY(18px) scale(.98);transition:all .5s cubic-bezier(.2,.9,.2,1);text-align:center}
-    .secret.show{opacity:1;transform:translateY(0) scale(1)}
-    .secret h2{font-family:Great Vibes,cursive;font-size:28px;color:var(--lav);margin-bottom:6px}
-    .secret p{font-size:16px;color:rgba(255,250,250,0.95);line-height:1.5}
-    .signature{margin-top:10px;font-family:Great Vibes,cursive;font-size:18px;color:rgba(255,255,255,0.9)}
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-    .controls{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;justify-content:center}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 12px;border-radius:10px;color:rgba(255,255,255,0.9);cursor:pointer;transition:all .25s}
-    .btn:hover{background:rgba(255,255,255,0.06);box-shadow:0 6px 30px rgba(255,136,184,0.08)}
+    .btn {
+      margin-top: 22px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: none;
+      background: #fff;
+      color: #ff3f7f;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
-    .heart{position:absolute;font-size:20px;opacity:0.9;transform:translateY(0);animation:floatUp 4s ease-in forwards;z-index:5}
-    @keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-300px) scale(.6);opacity:0}}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.5));display:flex;align-items:center;justify-content:center;z-index:5;flex-direction:column;backdrop-filter: blur(2px);}
-    .reveal-button{background:linear-gradient(90deg,var(--rose),var(--lav));padding:12px 18px;border-radius:999px;color:#fff;font-weight:600;border:none;box-shadow:0 8px 30px rgba(255,140,180,0.14);cursor:pointer}
-    .reveal-sub{margin-top:10px;color:rgba(255,255,255,0.9);font-size:14px;text-align:center}
+    /* Cake Pops */
+    .cakes {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 18px 0;
+      font-size: 2.2rem;
+    }
 
+    .cakes span {
+      animation: bounce 1.5s infinite;
+    }
+
+    .cakes span:nth-child(2) { animation-delay: .2s; }
+    .cakes span:nth-child(3) { animation-delay: .4s; }
+    .cakes span:nth-child(4) { animation-delay: .6s; }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* Kisses */
+    .kisses span {
+      font-size: 2rem;
+      display: inline-block;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    footer {
+      padding: 20px;
+      font-size: .85rem;
+      background: rgba(0,0,0,.2);
+    }
   </style>
 </head>
 <body>
 
-  <audio id="bgAudio" loop playsinline preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2021/09/09/audio_8d7e7f8a6d.mp3?filename=romantic-piano-11204.mp3" type="audio/mpeg">
-  </audio>
-
-  <header>Afthab ❤ Shifana</header>
-
-  <div class="back" id="back"></div>
-
-  <main class="card" role="main" id="card">
-    <div class="hero">
-      <h1>For My Mysterious Star</h1>
-      <p>Tap anywhere to reveal a little secret.</p>
+  <!-- Birthday Wish -->
+  <section>
+    <div class="card">
+      <h1>Shifana 🎉</h1>
+      <h2>Happy Birthday My shuttumani 💖</h2>
+      <p>
+        Today is the most special day because **you** were born.
+        You are my smile, my peace, my forever happiness.
+      </p>
+      <button class="btn" onclick="document.getElementById('cake').scrollIntoView({behavior:'smooth'})">Birthday Surprise 🎁</button>
     </div>
+  </section>
 
-    <div class="note" id="note" tabindex="0" aria-label="Reveal message">
-      <div class="type" id="typewriter"></div>
+  <!-- Cake Pops -->
+  <section id="cake">
+    <div class="card">
+      <h2>Birthday Cake Pops Just for You 🎂</h2>
+      <div class="cakes">
+        <span>🍰</span>
+        <span>🧁</span>
+        <span>🍭</span>
+        <span>🎂</span>
+      </div>
+      <p>
+        I wish I could feed you every bite and see your smile.
+        Make a wish, my love… it will come true 💫
+      </p>
     </div>
+  </section>
 
-    <div class="secret" id="secret">
-      <h2>My Secret</h2>
-      <p id="message">secret allee ,enthaa nn ariyoo njn parayatte😁 , nkk llee anne llee nannaayi onn kettipidich umma veikanam😉💋,ith arinjaal appoothanne ank theraan ppttilla nn enk ariyaam so ijjenk veegm chatil vann oru uumma thaa ttoo😌🙈 </p>
-      <div class="signature">— Afthab</div>
+  <!-- Love & Kisses -->
+  <section>
+    <div class="card kisses">
+      <h2>Birthday ummakall 😘</h2>
+      <p>
+        <span>😘</span> <span>💋</span> <span>😘</span> <span>💋</span> <span>😘</span>
+      </p>
+      <p>
+        One mmwaah for every smile you give me,
+        and one more because you are perfect 💕
+      </p>
     </div>
+  </section>
 
-    <div class="controls">
-      <button class="btn" id="heartBtn">♡ Send Heart</button>
-      <button class="btn" id="replayBtn">Replay</button>
-      <button class="btn" id="muteBtn">Mute</button>
+  <!-- Promise -->
+  <section>
+    <div class="card">
+      <h2>My Birthday Promise 💍</h2>
+      <p>
+        I promise to love you louder every year,
+        protect your heart, and stay by your side — always.
+        Happy Birthday, Shuttumani 🌹
+      </p>
     </div>
+  </section>
 
-    <div class="overlay" id="overlay">
-      <button class="reveal-button" id="revealBtn">Tap to reveal</button>
-      <div class="reveal-sub">(Music will start automatically on tap)</div>
-    </div>
-  </main>
-
-  <script>
-    // sparks
-    const back = document.getElementById('back');
-    for(let i=0;i<25;i++){
-      const el=document.createElement('div');
-      el.className='spark';
-      const size = 3 + Math.random()*4;
-      el.style.width = size+'px'; el.style.height = size+'px';
-      el.style.left = Math.random()*100+'%'; el.style.top = Math.random()*100+'%';
-      el.style.opacity = 0.5 + Math.random()*0.5;
-      back.appendChild(el);
-    }
-
-    // hearts
-    function burstHeart(){
-      const heart = document.createElement('div');
-      heart.className='heart';
-      heart.style.left = (20 + Math.random()*60) + '%';
-      heart.style.bottom = '-20px';
-      heart.textContent = '❤';
-      heart.style.fontSize = (14 + Math.random()*25) + 'px';
-      document.body.appendChild(heart);
-      heart.addEventListener('animationend', ()=>heart.remove());
-    }
-
-    const typeEl = document.getElementById('typewriter');
-    const secret = document.getElementById('secret');
-    let typing=false;
-
-    function typeAll(){
-      typeEl.innerHTML='';
-      const line = "Dear Shifana, Some nights I look at the sky and I think of you. You are the quiet light that changed my dark. Keep this little secret close. — Afthab";
-      let j=0;
-      typing=true;
-      function step(){
-        if(j<line.length){
-          typeEl.innerHTML = line.slice(0,j+1) + '<span class="cursor"></span>';
-          j++; setTimeout(step, 25 + Math.random()*30);
-        } else { typing=false; }
-      }
-      step();
-    }
-
-    const audio = document.getElementById('bgAudio');
-    const overlay = document.getElementById('overlay');
-
-    function startExperience(){
-      if(audio.paused){audio.play().catch(()=>{});}
-      overlay.style.display='none';
-      secret.classList.add('show');
-      typeAll();
-      for(let i=0;i<5;i++){ setTimeout(burstHeart,i*200); }
-    }
-
-    document.getElementById('revealBtn').addEventListener('click', startExperience);
-    document.body.addEventListener('touchstart', startExperience, {once:true});
-    document.body.addEventListener('click', startExperience, {once:true});
-
-    document.getElementById('note').addEventListener('click', startExperience);
-    document.getElementById('heartBtn').addEventListener('click', burstHeart);
-    document.getElementById('replayBtn').addEventListener('click', ()=>{ typeEl.innerHTML=''; secret.classList.remove('show'); setTimeout(typeAll,100); });
-    document.getElementById('muteBtn').addEventListener('click', ()=>{ if(audio.paused){audio.play();document.getElementById('muteBtn').textContent='Mute';} else {audio.pause();document.getElementById('muteBtn').textContent='Play';} });
-  </script>
+  <footer>
+    Made with endless love ❤️ Only for my karll
+  </footer>
 
 </body>
 </html>
